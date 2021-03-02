@@ -1,19 +1,16 @@
-$flow-gap: 0.75rem !default
+$flow-gap: 0.75rem !default;
 .flows
-    display: flex
-    flex-flow: row wrap;
-    align-items: flex-start
-    .flow
-        display: block
-        height: fit-content
-        width: fit-content
-        margin: $flow-gap
-
-.break::after
-  content: "";
-  display: block;
-
-+mobile
+  display: flex
+  flex-flow: row wrap;
+  align-items: flex-start;
+  .flow-break
+    width: 100%
+  .flow
+    display: block;
+    height: fit-content;
+    width: fit-content;
+    margin: $flow-gap;
+  +mobile
     &.is-full-mobile
       width: 100%
     &.is-three-quarters-mobile
@@ -58,7 +55,7 @@ $flow-gap: 0.75rem !default
         width: percentage($i / 12)
       &.is-offset-#{$i}-mobile
         margin-left: percentage($i / 12)
-+tablet
+  +tablet
     &.is-full,
     &.is-full-tablet
       width: 100%
@@ -124,7 +121,7 @@ $flow-gap: 0.75rem !default
       &.is-offset-#{$i},
       &.is-offset-#{$i}-tablet
         margin-left: percentage($i / 12)
-+touch
+  +touch
     &.is-full-touch
       width: 100%
     &.is-three-quarters-touch
@@ -169,7 +166,7 @@ $flow-gap: 0.75rem !default
         width: percentage($i / 12)
       &.is-offset-#{$i}-touch
         margin-left: percentage($i / 12)
-+desktop
+  +desktop
     &.is-full-desktop
       width: 100%
     &.is-three-quarters-desktop
@@ -214,7 +211,7 @@ $flow-gap: 0.75rem !default
         width: percentage($i / 12)
       &.is-offset-#{$i}-desktop
         margin-left: percentage($i / 12)
-+widescreen
+  +widescreen
     &.is-full-widescreen
       width: 100%
     &.is-three-quarters-widescreen
@@ -259,7 +256,7 @@ $flow-gap: 0.75rem !default
         width: percentage($i / 12)
       &.is-offset-#{$i}-widescreen
         margin-left: percentage($i / 12)
-+fullhd
+  +fullhd
     &.is-full-fullhd
       width: 100%
     &.is-three-quarters-fullhd
@@ -305,17 +302,16 @@ $flow-gap: 0.75rem !default
       &.is-offset-#{$i}-fullhd
         margin-left: percentage($i / 12)
 
+@for $i from 0 through 12
+  .flows > &.is-#{$i}
+    width: percentage($i / 12)
+  .flows > &.max-#{$i}
+    max-width: percentage($i / 12)
 
 @for $i from 0 through 12
-    .flows > &.is-#{$i}
-        width: percentage($i / 12)
-    .flows > &.max-#{$i}
-        max-width: percentage($i / 12)
-
-@for $i from 0 through 12
-    .flows.is-mobile > &.is-#{$i}
-        width: percentage($i / 12)
-    .flows.is-mobile > &.max-#{$i}
-        max-width: percentage($i / 12)
-    .flows.is-mobile > &.is-offset-#{$i}
-        margin-left: percentage($i / 12)
+  .flows.is-mobile > &.is-#{$i}
+    width: percentage($i / 12)
+  .flows.is-mobile > &.max-#{$i}
+    max-width: percentage($i / 12)
+  .flows.is-mobile > &.is-offset-#{$i}
+    margin-left: percentage($i / 12)
